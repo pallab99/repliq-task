@@ -1,6 +1,23 @@
 import React from 'react';
-
-export default function Index(props: any) {
+const addresses = [
+  {
+    name: 'John wick',
+    street: '11th Main',
+    city: 'Delhi',
+    pinCode: 110001,
+    state: 'Delhi',
+    phone: 12312321331,
+  },
+  {
+    name: 'John Doe',
+    street: '15th Main',
+    city: 'Bangalore',
+    pinCode: 560034,
+    state: 'Karnataka',
+    phone: 123123123,
+  },
+];
+export default function Index() {
   return (
     <>
       <div className="lg:col-span-3 mb-10">
@@ -187,7 +204,7 @@ export default function Index(props: any) {
                 Choose from Existing addresses
               </p>
               <ul role="list">
-                {props?.addresses.map((address: any) => (
+                {addresses.map((address: any) => (
                   <li
                     key={address?.name}
                     className="flex justify-between gap-x-6 px-5 py-5 border-solid border-2 border-gray-200 mb-3"
