@@ -1,51 +1,30 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 import { useEffect, useState } from 'react';
-import { StarIcon } from '@heroicons/react/20/solid';
-import { RadioGroup } from '@headlessui/react';
-import axios from 'axios';
-import { Skeleton, Spin, message } from 'antd';
-import getSingleProductDetails from '@/Api/getSingleProductDetails';
+import { Skeleton, message } from 'antd';
 import Navbar from '../Navbar';
 import getAllProducts from '@/Api/getAllProducts';
-import { log } from 'console';
-
-
 
 export default function Index(props: any) {
-
   const [product, setProduct] = useState([]) as any;
   const [images, setImages] = useState([]);
-  const [cartData, setCartData] = useState([])
-  const [productDetailsLoader, setProductDetailsLoader] = useState(true);
+
   useEffect(() => {
-    console.log('productDetails Components', props.productId);
-    // handleGetSingleProductDetails(props.productId);
-    // getAllProducts();
     handleGetAllProducts();
   }, []);
   const [products, setProducts] = useState([]) as any;
   const [allProductsLoader, setAllProductsLoader] = useState(true);
   const handleGetAllProducts = async () => {
-    // const Pagination = { _page: page, _limit: ITEMS_PER_PAGE };
     try {
       setAllProductsLoader(true);
       const allProducts = await getAllProducts();
-      // const allProductsArr= Object.keys(allProducts?.data);
       setProducts(allProducts.data);
-      // console.log(allProducts.data);
-
       const singleProduct = await allProducts?.data.filter((ele: any) => {
         return ele?.id == props.productId;
-        // console.log(ele?.id)
       });
-      // setTotalItems(products.totalItems);
-      console.log(singleProduct);
       setProduct(singleProduct);
       const image = await singleProduct[0]?.images;
       setImages(image);
-      // console.log(image);
-
       setAllProductsLoader(false);
     } catch (error) {
       message.error("Can't load products");
@@ -53,34 +32,9 @@ export default function Index(props: any) {
     }
   };
 
-  // const handleAddToCart = async (e:any) => {
-  //   e.preventDefault();
-  //   try {
-  //     const user=await localStorage.getItem("userInfo");
-  //     //@ts-ignore
-  //     // JSON.parse(user)
-  //     //@ts-ignore
-  //     // console.log("1111",user[user?.length-3]);
-  //     //@ts-ignore
-  //     const data={...product,quantity:1,user:user[user?.length-3]}
-  //     //@ts-ignore
-  //     setCartData(prevData:any => [...prevData, data]);
-  //     localStorage.setItem("cartItem",JSON.stringify(cartData));
-  //     // const response=await axios.post("https://pallab99.github.io/data/cart.json",data)
-
-  //     // console.log("111",response.data);
-      
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  console.log("111",cartData);
-  
   return (
     <>
       <Navbar />
-
       {allProductsLoader ? (
         <Skeleton active />
       ) : (
@@ -173,8 +127,12 @@ export default function Index(props: any) {
               {/* Options */}
               <div className="mt-4 lg:row-span-3 lg:mt-0">
                 <h2 className="text-2xl">Product information</h2>
-                <p className='text-2xl tracking-tight'>Category : {product[0].category}</p>
-                <p className='text-2xl tracking-tight'>Brand : {product[0].brand}</p>
+                <p className="text-2xl tracking-tight">
+                  Category : {product[0].category}
+                </p>
+                <p className="text-2xl tracking-tight">
+                  Brand : {product[0].brand}
+                </p>
                 <p className="text-2xl tracking-tight text-gray-500 line-through">
                   Price: ${product[0].price}
                 </p>
@@ -189,7 +147,7 @@ export default function Index(props: any) {
                 <form className="mt-10">
                   {/* Colors */}
 
-                    {/* <button
+                  {/* <button
                       // onClick={handleAddToCart}
                       type="submit"
                       className="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
@@ -212,7 +170,9 @@ export default function Index(props: any) {
                 </div>
 
                 <div className="mt-10">
-                  <h2 className="text-2xl font-medium text-gray-900 ">Details</h2>
+                  <h2 className="text-2xl font-medium text-gray-900 ">
+                    Details
+                  </h2>
 
                   <div className="mt-4 space-y-6">
                     <p className="text-lg text-gray-600">
