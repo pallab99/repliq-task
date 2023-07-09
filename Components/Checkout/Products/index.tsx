@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { message } from 'antd';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
@@ -107,8 +108,11 @@ export default function Index() {
           </p>
           <div className="mt-6">
             <Link
-              href="/pay"
+              href="/"
               className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+              onClick={()=>{
+                message.success("Order Placed Successfully")
+              }}
             >
               Pay and Order
             </Link>

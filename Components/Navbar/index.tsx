@@ -46,7 +46,7 @@ export default function Navbar(props: any) {
                         }}
                       />
                     </div>
-                    <div className="hidden md:block">
+                    <div className="block">
                       <div className="ml-10 flex items-baseline space-x-4">
                         {navigation.map((item) => (
                           <a
@@ -67,13 +67,13 @@ export default function Navbar(props: any) {
                       </div>
                     </div>
                   </div>
-                  <div className="hidden md:block">
+                  <div className="block">
                     <div className="ml-4 flex items-center md:ml-6">
                       <button
                         type="button"
                         className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                       >
-                        <span className="sr-only">View notifications</span>
+                        
                         <ShoppingCartIcon
                           className="h-6 w-6"
                           aria-hidden="true"
@@ -82,16 +82,13 @@ export default function Navbar(props: any) {
                           }}
                         />
                       </button>
-                      <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 mb-7 ml-0text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
-                        3
-                      </span>
-                      {/* Profile dropdown */}
+                      
                       
                     </div>
                   </div>
                   <div className="-mr-2 flex md:hidden">
                     {/* Mobile menu button */}
-                    <Disclosure.Button className="inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                    {/* <Disclosure.Button className="inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="sr-only">Open main menu</span>
                       {open ? (
                         <XMarkIcon
@@ -104,7 +101,7 @@ export default function Navbar(props: any) {
                           aria-hidden="true"
                         />
                       )}
-                    </Disclosure.Button>
+                    </Disclosure.Button> */}
                   </div>
                 </div>
               </div>
@@ -158,9 +155,7 @@ export default function Navbar(props: any) {
                         }}
                       />
                     </button>
-                    <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 mb-7 ml-10 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
-                      3
-                    </span>
+                    
                   </div>
                   
                 </div>

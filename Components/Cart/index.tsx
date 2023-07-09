@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-export default function Index() {
+export default function   Index() {
   const router = useRouter();
 
   const [products, setProducts] = useState([

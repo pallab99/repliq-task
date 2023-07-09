@@ -4,7 +4,6 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
 
 import { message } from 'antd';
 export default function Page() {
@@ -21,6 +20,7 @@ export default function Page() {
 
       message.success('Login successful');
       router.push('/');
+      localStorage.setItem('login',"loggedIn");
     } catch (error) {
       message.error('Login failed');
     }
