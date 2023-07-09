@@ -1,9 +1,10 @@
-import Image from 'next/image'
-
+import Navbar from '@/Components/Navbar';
+// import ProductList from '@/Components/ProductList';
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>Pallab</div>
-    </main>
-  )
+      <div>
+        <Navbar />
+        {/* <ProductList/> */}
+      </div>
+  );
 }
