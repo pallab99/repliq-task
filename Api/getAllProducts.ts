@@ -7,7 +7,6 @@ const getAllProducts = async () => {
     );
     return { data: response.data};
   } catch (error) {
-    console.log(error);
     throw error;
   }
 };

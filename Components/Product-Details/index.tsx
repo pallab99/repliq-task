@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 import { useEffect, useState } from 'react';
-import { Skeleton, message } from 'antd';
+import { Spin, message } from 'antd';
 import Navbar from '../Navbar';
 import getAllProducts from '@/Api/getAllProducts';
 
@@ -36,7 +36,7 @@ export default function Index(props: any) {
     <>
       <Navbar />
       {allProductsLoader ? (
-        <Skeleton active />
+        <Spin />
       ) : (
         <div className="bg-white">
           <div className="pt-6">

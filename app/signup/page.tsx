@@ -16,7 +16,6 @@ export default function Page() {
     watch,
     formState: { errors },
   } = useForm();
-  console.log(errors);
   const handleSignUpUser = async (data:any) => {
     try {
       // const userDetails = await signUpUser(data);
